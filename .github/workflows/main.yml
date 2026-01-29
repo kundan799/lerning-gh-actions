@@ -8,25 +8,15 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: List all files
-        run: dir
-
-      - name: Print working directory
-        run: cd
-
       - name: Create JS file
-        run: echo console.log("Hello World!") > app.js
-
-      - name: List all files again
-        run: dir
+        run: |
+          echo 'console.log("Hello World!")' | Out-File app.js -Encoding utf8
 
       - name: Run Node.js file
         run: node app.js
