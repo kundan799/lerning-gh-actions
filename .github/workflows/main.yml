@@ -27,23 +27,25 @@ jobs:
         run: node app.js
 
 
-  system-info:
-    runs-on: windows-latest
+ system-info:
+  runs-on: windows-latest
 
-    steps:
-      - name: OS & Runner info
-        run: |
-          systeminfo
+  steps:
+    - name: OS & Runner info
+      run: |
+        systeminfo
 
-      - name: Node & npm versions
-        run: |
-          node --version
-          npm --version
+    - name: Node & npm versions
+      run: |
+        node --version
+        npm --version
 
-      - name: CPU info
-        run: |
-          wmic cpu get name
+    - name: CPU info
+      run: |
+        Get-CimInstance Win32_Processor | Select-Object Name
 
-      - name: Memory info
-        run: |
-          wmic OS get TotalVisibleMemorySize,FreePhysicalMemory
+    - name: Memory info
+      run: |
+        Get-CimInstance Win32_OperatingSystem |
+        Select-Object TotalVisibleMemorySize, FreePhysicalMemory
+
