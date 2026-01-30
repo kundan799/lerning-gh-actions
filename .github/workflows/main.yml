@@ -25,3 +25,25 @@ jobs:
 
       - name: Run Node.js file
         run: node app.js
+
+
+  system-info:
+    runs-on: windows-latest
+
+    steps:
+      - name: OS & Runner info
+        run: |
+          systeminfo
+
+      - name: Node & npm versions
+        run: |
+          node --version
+          npm --version
+
+      - name: CPU info
+        run: |
+          wmic cpu get name
+
+      - name: Memory info
+        run: |
+          wmic OS get TotalVisibleMemorySize,FreePhysicalMemory
