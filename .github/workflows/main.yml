@@ -1,22 +1,16 @@
 name: My first workflow
-
-on:
-  workflow_dispatch
-
+on: workflow_dispatch
 jobs:
-  my-first-job:
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Create JS file
-        run: |
-          echo 'console.log("Hello World!")' | Out-File app.js -Encoding utf8
-
-      - name: Run Node.js file
-        run: node app.js
+    my-first-job:
+        runs-on: window
+        steps:
+            - name: List all Files
+              run : ls -a
+            - name: Print Working Directory
+              run : pwd
+            - name: Create JS Files
+              run : echo 'console.log("Hello  World!");' > app.js
+            - name : List all Files
+              run : ls -a
+            - name : Run Node.js Files
+              run: node app.js
