@@ -22,7 +22,7 @@ jobs:
         run: Get-Location
 
       - name: Create JS file
-        run: echo console.log("Hello World!") > app.js
+       run: 'echo console.log(\"Hello World!\") > app.js'
 
       - name: List all files again
         run: dir
