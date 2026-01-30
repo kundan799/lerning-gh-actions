@@ -43,6 +43,7 @@ jobs:
     - name: CPU info
       run: |
         Get-CimInstance Win32_Processor | Select-Object Name
+        
 
     - name: Memory info
       run: |
